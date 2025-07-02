@@ -4,63 +4,48 @@ part 'stream_settings.freezed.dart';
 part 'stream_settings.g.dart';
 
 @freezed
-@JsonSerializable()
 class StreamSettings with _$StreamSettings {
   /// The index of default resolution of single view live streaming.
   ///
   /// 0: 360p, 1: 480p, 2: 720p, 3: 1080p, 4: auto
-  final int resolutionIndex;
+  const StreamSettings._();
 
-  /// The index of default resolution of multi view live streaming.
-  ///
-  /// 0: 360p, 1: 480p, 2: 720p, 3: 1080p, 4: auto
-  final int multiviewResolutionIndex;
+  const factory StreamSettings({
+    /// The index of default resolution of single view live streaming.
+    /// 0: 360p, 1: 480p, 2: 720p, 3: 1080p, 4: auto
+    required int resolutionIndex,
 
-  /// The index of default resolution of vod streaming.
-  ///
-  /// 0: 720p, 1: 1080p, 2: auto
-  final int vodResolutionIndex;
+    /// The index of default resolution of multi view live streaming.
+    /// 0: 360p, 1: 480p, 2: 720p, 3: 1080p, 4: auto
+    required int multiviewResolutionIndex,
 
-  /// The index of default screen mode of single view live streaming.
-  ///
-  /// 0: off, 1: overlay, 2: side
-  final int liveChatWindowIndex;
+    /// The index of default resolution of vod streaming.
+    /// 0: 720p, 1: 1080p, 2: auto
+    required int vodResolutionIndex,
 
-  /// The index of default screen mode of vod streaming.
-  ///
-  /// 0: off, 1: overlay, 2: side
-  final int vodChatWindowIndex;
+    /// The index of default screen mode of single view live streaming.
+    /// 0: off, 1: overlay, 2: side
+    required int liveChatWindowIndex,
 
-  /// 0: HLS, 1:LLHLS
-  final int latencyIndex;
+    /// The index of default screen mode of vod streaming.
+    /// 0: off, 1: overlay, 2: side
+    required int vodChatWindowIndex,
 
-  /// The time(in seconds) that the overlay controls are displayed.
-  final int overlayControlsDisplayTime;
+    /// 0: HLS, 1: LLHLS
+    required int latencyIndex,
 
-  /// Interval of vod playback controls.
-  ///
-  /// 0: 5s, 1: 10s, 2: 30s
-  final int vodPlaybackIntervalIndex;
+    /// The time(in seconds) that the overlay controls are displayed.
+    required int overlayControlsDisplayTime,
 
-  /// Show custom group in video player overlay to navigate other videos.
-  /// 
-  /// 0: false, 1: true
-  final int showGroupInVideoPlayer;
+    /// Interval of vod playback controls.
+    /// 0: 5s, 1: 10s, 2: 30s
+    required int vodPlaybackIntervalIndex,
 
-  StreamSettings({
-    required this.resolutionIndex,
-    required this.multiviewResolutionIndex,
-    required this.vodResolutionIndex,
-    required this.liveChatWindowIndex,
-    required this.vodChatWindowIndex,
-    required this.latencyIndex,
-    required this.overlayControlsDisplayTime,
-    required this.vodPlaybackIntervalIndex,
-    required this.showGroupInVideoPlayer,
-  });
+    /// Show custom group in video player overlay to navigate other videos.
+    /// 0: false, 1: true
+    required int showGroupInVideoPlayer,
+  }) = _StreamSettings;
 
   factory StreamSettings.fromJson(Map<String, dynamic> json) =>
       _$StreamSettingsFromJson(json);
-
-  Map<String, Object?> toJson() => _$StreamSettingsToJson(this);
 }

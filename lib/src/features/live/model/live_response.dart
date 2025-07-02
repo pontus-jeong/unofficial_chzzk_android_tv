@@ -2,47 +2,43 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'live_info.dart';
 
-part 'live_response.g.dart';
 part 'live_response.freezed.dart';
+part 'live_response.g.dart';
 
 @freezed
-@JsonSerializable()
 class LiveResponse with _$LiveResponse {
-  final int size;
-  final LivePage? page;
-  final List<LiveInfo> data;
+  const LiveResponse._();
 
-  LiveResponse({
-    required this.size,
-    this.page,
-    required this.data,
-  });
+  const factory LiveResponse({
+    required int size,
+    LivePage? page,
+    required List<LiveInfo> data,
+  }) = _LiveResponse;
 
   factory LiveResponse.fromJson(Map<String, dynamic> json) =>
       _$LiveResponseFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class LivePage with _$LivePage {
-  final LiveNext? next;
+  const LivePage._();
 
-  LivePage({this.next});
+  const factory LivePage({
+    LiveNext? next,
+  }) = _LivePage;
 
   factory LivePage.fromJson(Map<String, dynamic> json) =>
       _$LivePageFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class LiveNext with _$LiveNext {
-  final int concurrentUserCount;
-  final int liveId;
+  const LiveNext._();
 
-  LiveNext({
-    required this.concurrentUserCount,
-    required this.liveId,
-  });
+  const factory LiveNext({
+    required int concurrentUserCount,
+    required int liveId,
+  }) = _LiveNext;
 
   factory LiveNext.fromJson(Map<String, dynamic> json) =>
       _$LiveNextFromJson(json);

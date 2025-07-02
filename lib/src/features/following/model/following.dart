@@ -7,32 +7,28 @@ part 'following.freezed.dart';
 part 'following.g.dart';
 
 @freezed
-@JsonSerializable()
 class Following with _$Following {
-  final String channelId;
-  final Channel channel;
-  final Streamer streamer;
-  final LiveInfo liveInfo;
+  const Following._();
 
-  Following({
-    required this.channelId,
-    required this.channel,
-    required this.streamer,
-    required this.liveInfo,
-  });
+  const factory Following({
+    required String channelId,
+    required Channel channel,
+    required Streamer streamer,
+    required LiveInfo liveInfo,
+  }) = _Following;
 
   factory Following.fromJson(Map<String, dynamic> json) =>
       _$FollowingFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class Streamer with _$Streamer {
-  final bool openLive;
+  const Streamer._();
 
-  Streamer({required this.openLive});
+  const factory Streamer({
+    required bool openLive,
+  }) = _Streamer;
 
   factory Streamer.fromJson(Map<String, dynamic> json) =>
       _$StreamerFromJson(json);
 }
-

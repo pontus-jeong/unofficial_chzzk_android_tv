@@ -1,36 +1,29 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'group.g.dart';
 part 'group.freezed.dart';
+part 'group.g.dart';
 
 @freezed
-@JsonSerializable(explicitToJson: true)
 class Groups with _$Groups {
-  final List<Group> groups;
-  final int lastActivatedGroupIndex;
+  const Groups._();
 
-  Groups({
-    required this.groups,
-    required this.lastActivatedGroupIndex,
-  });
+  const factory Groups({
+    required List<Group> groups,
+    required int lastActivatedGroupIndex,
+  }) = _Groups;
 
   factory Groups.fromJson(Map<String, dynamic> json) => _$GroupsFromJson(json);
-  Map<String, dynamic> toJson() => _$GroupsToJson(this);
 }
 
 @freezed
-@JsonSerializable(explicitToJson: true)
 class Group with _$Group {
-  final String id;
-  final String groupName;
-  final List<String> members; // channelId
+  const Group._();
 
-  Group({
-    required this.id,
-    required this.groupName,
-    required this.members,
-  });
+  const factory Group({
+    required String id,
+    required String groupName,
+    required List<String> members,
+  }) = _Group;
 
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
-  Map<String, dynamic> toJson() => _$GroupToJson(this);
 }

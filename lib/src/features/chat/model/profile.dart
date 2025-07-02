@@ -2,42 +2,35 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'profile.g.dart';
 part 'profile.freezed.dart';
+part 'profile.g.dart';
 
 @freezed
-@JsonSerializable()
 class Profile with _$Profile {
-  final String? userIdHash;
-  final String? nickname;
-  final String?
-      userRoleCode; // "common-user", "streaming_channel_manager", "streaming_chat_manager",
-  final ChzzkBadge? badge;
-  final bool? verifiedMark;
+  const Profile._();
 
-  Profile({
-    this.userIdHash,
-    this.nickname,
-    this.userRoleCode,
-    this.badge,
-    required this.verifiedMark,
-  });
+  const factory Profile({
+    String? userIdHash,
+    String? nickname,
+    String? userRoleCode,
+    ChzzkBadge? badge,
+    required bool verifiedMark,
+  }) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
-  Map<String, dynamic> toJson() => _$ProfileToJson(this);
 }
 
 @freezed
-@JsonSerializable()
 class ChzzkBadge with _$ChzzkBadge {
-  final String? imageUrl;
+  const ChzzkBadge._();
 
-  ChzzkBadge({this.imageUrl});
+  const factory ChzzkBadge({
+    String? imageUrl,
+  }) = _ChzzkBadge;
 
   factory ChzzkBadge.fromJson(Map<String, dynamic> json) =>
       _$ChzzkBadgeFromJson(json);
-  Map<String, dynamic> toJson() => _$ChzzkBadgeToJson(this);
 }
 
 class ProfileConverter implements JsonConverter<Profile, String> {

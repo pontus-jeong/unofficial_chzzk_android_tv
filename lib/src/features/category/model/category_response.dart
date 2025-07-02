@@ -2,60 +2,56 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'category.dart';
 
-part 'category_response.g.dart';
 part 'category_response.freezed.dart';
+part 'category_response.g.dart';
 
 @freezed
-@JsonSerializable()
 class CategoryResponse with _$CategoryResponse {
-  final int size;
-  final CategoryPage? page;
-  final List<Category> data;
+  const CategoryResponse._();
 
-  CategoryResponse({
-    required this.size,
-    this.page,
-    required this.data,
-  });
+  const factory CategoryResponse({
+    required int size,
+    CategoryPage? page,
+    required List<Category> data,
+  }) = _CategoryResponse;
 
   factory CategoryResponse.fromJson(Map<String, dynamic> json) =>
       _$CategoryResponseFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class CategoryPage with _$CategoryPage {
-  final CategoryNext? next;
+  const CategoryPage._();
 
-  CategoryPage({this.next});
+  const factory CategoryPage({
+    CategoryNext? next,
+  }) = _CategoryPage;
 
   factory CategoryPage.fromJson(Map<String, dynamic> json) =>
       _$CategoryPageFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class CategoryNext with _$CategoryNext {
-  final int concurrentUserCount;
-  final int openLiveCount;
-  final String categoryId;
+  const CategoryNext._();
 
-  CategoryNext({
-    required this.concurrentUserCount,
-    required this.openLiveCount,
-    required this.categoryId,
-  });
+  const factory CategoryNext({
+    required int concurrentUserCount,
+    required int openLiveCount,
+    required String categoryId,
+  }) = _CategoryNext;
 
   factory CategoryNext.fromJson(Map<String, dynamic> json) =>
       _$CategoryNextFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class FollowingCategoryResponse with _$FollowingCategoryResponse {
-  final List<Category>? followingList;
+  const FollowingCategoryResponse._();
 
-  FollowingCategoryResponse({this.followingList});
+  const factory FollowingCategoryResponse({
+    List<Category>? followingList,
+  }) = _FollowingCategoryResponse;
 
   factory FollowingCategoryResponse.fromJson(Map<String, dynamic> json) =>
       _$FollowingCategoryResponseFromJson(json);

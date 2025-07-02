@@ -3,48 +3,44 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../live/model/live_info.dart';
 import '../../vod/model/vod.dart';
 
-part 'search_tag_response.g.dart';
 part 'search_tag_response.freezed.dart';
+part 'search_tag_response.g.dart';
 
 /* LIVE */
 @freezed
-@JsonSerializable()
 class SearchTagLiveResponse with _$SearchTagLiveResponse {
-  final int size;
-  final SearchTagLivePage? page;
-  final List<LiveInfo> data;
+  const SearchTagLiveResponse._();
 
-  SearchTagLiveResponse({
-    required this.size,
-    this.page,
-    required this.data,
-  });
+  const factory SearchTagLiveResponse({
+    required int size,
+    SearchTagLivePage? page,
+    required List<LiveInfo> data,
+  }) = _SearchTagLiveResponse;
 
   factory SearchTagLiveResponse.fromJson(Map<String, dynamic> json) =>
       _$SearchTagLiveResponseFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class SearchTagLivePage with _$SearchTagLivePage {
-  final SearchTagLiveNext? next;
+  const SearchTagLivePage._();
 
-  SearchTagLivePage({required this.next});
+  const factory SearchTagLivePage({
+    SearchTagLiveNext? next,
+  }) = _SearchTagLivePage;
 
   factory SearchTagLivePage.fromJson(Map<String, dynamic> json) =>
       _$SearchTagLivePageFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class SearchTagLiveNext with _$SearchTagLiveNext {
-  final int concurrentUserCount;
-  final int liveId;
+  const SearchTagLiveNext._();
 
-  SearchTagLiveNext({
-    required this.concurrentUserCount,
-    required this.liveId,
-  });
+  const factory SearchTagLiveNext({
+    required int concurrentUserCount,
+    required int liveId,
+  }) = _SearchTagLiveNext;
 
   factory SearchTagLiveNext.fromJson(Map<String, dynamic> json) =>
       _$SearchTagLiveNextFromJson(json);
@@ -52,39 +48,38 @@ class SearchTagLiveNext with _$SearchTagLiveNext {
 
 /* VOD */
 @freezed
-@JsonSerializable()
 class SearchTagVodResponse with _$SearchTagVodResponse {
-  final int size;
-  final SearchTagVodPage? page;
-  final List<Vod> data;
+  const SearchTagVodResponse._();
 
-  SearchTagVodResponse({
-    required this.size,
-    this.page,
-    required this.data,
-  });
+  const factory SearchTagVodResponse({
+    required int size,
+    SearchTagVodPage? page,
+    required List<Vod> data,
+  }) = _SearchTagVodResponse;
 
   factory SearchTagVodResponse.fromJson(Map<String, dynamic> json) =>
       _$SearchTagVodResponseFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class SearchTagVodPage with _$SearchTagVodPage {
-  final SearchTagVodNext? next;
+  const SearchTagVodPage._();
 
-  SearchTagVodPage({required this.next});
+  const factory SearchTagVodPage({
+    SearchTagVodNext? next,
+  }) = _SearchTagVodPage;
 
   factory SearchTagVodPage.fromJson(Map<String, dynamic> json) =>
       _$SearchTagVodPageFromJson(json);
 }
 
 @freezed
-@JsonSerializable()
 class SearchTagVodNext with _$SearchTagVodNext {
-  final int start;
+  const SearchTagVodNext._();
 
-  SearchTagVodNext({required this.start});
+  const factory SearchTagVodNext({
+    required int start,
+  }) = _SearchTagVodNext;
 
   factory SearchTagVodNext.fromJson(Map<String, dynamic> json) =>
       _$SearchTagVodNextFromJson(json);

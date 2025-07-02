@@ -5,11 +5,12 @@ part 'auto_complete_tag_response.g.dart';
 
 /* keyword */
 @freezed
-@JsonSerializable()
 class AutoCompleteTagResponse with _$AutoCompleteTagResponse {
-  final List<String> keywords;
+  const AutoCompleteTagResponse._();
 
-  AutoCompleteTagResponse({required this.keywords});
+  const factory AutoCompleteTagResponse({
+    required List<String> keywords,
+  }) = _AutoCompleteTagResponse;
 
   factory AutoCompleteTagResponse.fromJson(Map<String, dynamic> json) =>
       _$AutoCompleteTagResponseFromJson(json);

@@ -5,22 +5,17 @@ part 'auto_complete_response.g.dart';
 
 /* channel */
 @freezed
-@JsonSerializable()
 class AutoCompleteSearchChannelResponse
     with _$AutoCompleteSearchChannelResponse {
-  final int page;
-  final int size;
-  final int totalCount;
-  final int totalPages;
-  final List<String> data;
+  const AutoCompleteSearchChannelResponse._();
 
-  AutoCompleteSearchChannelResponse({
-    required this.page,
-    required this.size,
-    required this.totalCount,
-    required this.totalPages,
-    required this.data,
-  });
+  const factory AutoCompleteSearchChannelResponse({
+    required int page,
+    required int size,
+    required int totalCount,
+    required int totalPages,
+    required List<String> data,
+  }) = _AutoCompleteSearchChannelResponse;
 
   factory AutoCompleteSearchChannelResponse.fromJson(
     Map<String, dynamic> json,
@@ -30,18 +25,15 @@ class AutoCompleteSearchChannelResponse
 
 /* category */
 @freezed
-@JsonSerializable()
 class AutoCompleteSearchCategoryResponse
     with _$AutoCompleteSearchCategoryResponse {
-  final Paging? paging;
-  final int totalCount;
-  final List<String> data;
+  const AutoCompleteSearchCategoryResponse._();
 
-  AutoCompleteSearchCategoryResponse({
-    required this.paging,
-    required this.totalCount,
-    required this.data,
-  });
+  const factory AutoCompleteSearchCategoryResponse({
+    required Paging? paging,
+    required int totalCount,
+    required List<String> data,
+  }) = _AutoCompleteSearchCategoryResponse;
 
   factory AutoCompleteSearchCategoryResponse.fromJson(
     Map<String, dynamic> json,
@@ -50,18 +42,14 @@ class AutoCompleteSearchCategoryResponse
 }
 
 @freezed
-@JsonSerializable()
 class Paging with _$Paging {
-  final String pagingType;
-  final int currentPageNo;
-  final bool lastPage;
+  const Paging._();
 
-  Paging({
-    required this.pagingType,
-    required this.currentPageNo,
-    required this.lastPage,
-  });
+  const factory Paging({
+    required String pagingType,
+    required int currentPageNo,
+    required bool lastPage,
+  }) = _Paging;
 
   factory Paging.fromJson(Map<String, dynamic> json) => _$PagingFromJson(json);
 }
-
